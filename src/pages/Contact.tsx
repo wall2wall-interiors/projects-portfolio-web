@@ -26,28 +26,45 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted mb-1">Email</p>
-                <p className="text-lg">hello@wall2wallinteriors.co.in</p>
+                <p className="text-lg">info@wall2wallinteriors.co.in</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <div className="p-3 bg-white/5 border border-white/10">
                 <Phone size={20} className="text-white" />
               </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-muted mb-1">Phone</p>
-                <p className="text-lg">+1 (305) 555-0123</p>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-muted mb-1">Kerala Phone</p>
+                  <p className="text-lg">+91 81568 98806</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-muted mb-1">Dubai Phone</p>
+                  <p className="text-lg">+971 56 524 6650</p>
+                </div>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <div className="p-3 bg-white/5 border border-white/10">
                 <MapPin size={20} className="text-white" />
               </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-muted mb-1">Studio</p>
-                <p className="text-lg text-pretty max-w-xs">
-                  890 Design District Ave, Suite 402<br />
-                  Miami, FL 33137
-                </p>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-muted mb-1">Kerala Studio</p>
+                  <p className="text-lg text-pretty max-w-xs leading-relaxed">
+                    4/236-1, Viyyur, Thrissur - Shornur Rd, <br />
+                    Near Manalarkavu Temple, <br />
+                    Thrissur, Kerala 680010
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-muted mb-1">Dubai Studio</p>
+                  <p className="text-lg text-pretty max-w-xs leading-relaxed">
+                    Ontario Tower, Office C-1804-124, <br />
+                    Sheikh Zayed Road, Business Bay, <br />
+                    Dubai, UAE
+                  </p>
+                </div>
               </div>
             </div>
           </div>

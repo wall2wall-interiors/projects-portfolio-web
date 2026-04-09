@@ -12,7 +12,7 @@ export default function About() {
             className="text-6xl md:text-9xl font-display font-bold tracking-tighter leading-[0.9] mb-12"
           >
             THE<br />
-            <span className="text-muted/40 italic">STUDIO</span>
+            <span className="text-muted/40 italic">PARTNER</span>
           </motion.h1>
           <motion.p 
             initial={{ y: 30, opacity: 0 }}
@@ -20,10 +20,9 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-2xl md:text-4xl font-light leading-snug tracking-tight"
           >
-            Wall2Wall is an award-winning design agency specializing in 
-            high-end residential and commercial interiors. Based in Miami, 
-            we work globally with clients who value minimalism and 
-            intentional living.
+            Wall 2 Wall is an industry leader in interior design and development. 
+            From Thrissur to Dubai, we create benchmarks for stunning interiors 
+            and elegant decor, backed by over 7 years of mastery.
           </motion.p>
         </header>
 
@@ -43,33 +42,36 @@ export default function About() {
           <div className="space-y-8">
             <h2 className="text-xs font-medium tracking-[0.3em] uppercase text-muted">Our Philosophy</h2>
             <p className="text-lg text-muted leading-relaxed">
-              We believe that space should be felt, not just seen. Our approach 
-              is reductive but not cold. We subtract the unnecessary to reveal 
-              the essential, using materiality and light as our primary tools.
+              We believe in a perfect blend of art and quality. Our approach is 
+              comprehensive—from meticulous design and material selection to 
+              expert procurement and final execution. We don't just decorate 
+              spaces; we craft environments that reflect our clients' unique 
+              aspirations.
             </p>
             <p className="text-lg text-muted leading-relaxed">
-              Every project is a collaboration between the architect's vision, 
-              the client's needs, and the soul of the site.
+              With 100+ projects completed across Kerala and Dubai, our team 
+              remains committed to providing unmatched value for both luxury 
+              and budget-friendly interiors.
             </p>
           </div>
         </section>
 
         <section className="border-t border-white/10 pt-24 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           <div>
-            <p className="text-4xl font-display font-bold mb-2">12+</p>
+            <p className="text-4xl font-display font-bold mb-2">07+</p>
             <p className="text-xs uppercase tracking-widest text-muted">Years Experience</p>
           </div>
           <div>
-            <p className="text-4xl font-display font-bold mb-2">150</p>
+            <p className="text-4xl font-display font-bold mb-2">100+</p>
             <p className="text-xs uppercase tracking-widest text-muted">Projects Completed</p>
           </div>
           <div>
-            <p className="text-4xl font-display font-bold mb-2">24</p>
-            <p className="text-xs uppercase tracking-widest text-muted">International Awards</p>
+            <p className="text-4xl font-display font-bold mb-2">100%</p>
+            <p className="text-xs uppercase tracking-widest text-muted">Customer Satisfaction</p>
           </div>
           <div>
-            <p className="text-4xl font-display font-bold mb-2">08</p>
-            <p className="text-xs uppercase tracking-widest text-muted">Designers</p>
+            <p className="text-4xl font-display font-bold mb-2">500+</p>
+            <p className="text-xs uppercase tracking-widest text-muted">Products Sold</p>
           </div>
         </section>
       </div>

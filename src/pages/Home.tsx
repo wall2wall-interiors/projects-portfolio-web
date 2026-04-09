@@ -40,14 +40,14 @@ export default function Home() {
           className="max-w-5xl"
         >
           <h1 className="text-6xl md:text-9xl font-display font-bold tracking-tighter leading-[0.9] mb-12">
-            WE DESIGN<br />
-            <span className="text-muted/40 italic">SPACES</span> THAT<br />
-            TELL STORIES.
+            WE BRING<br />
+            <span className="text-muted/40 italic">DREAMS</span> INTO<br />
+            REALITY.
           </h1>
           <p className="text-xl md:text-2xl text-muted max-w-2xl font-light leading-relaxed">
-            Wall2Wall is a boutique interior design studio dedicated to creating 
-            minimalist, high-end environments that balance raw industrial elements 
-            with modern sophistication.
+            Wall 2 Wall is a top-rated interior design studio in Kerala and Dubai, 
+            dedicated to creating a perfect blend of art and quality. We transform 
+            residential and commercial spaces into masterpieces of comfort and style.
           </p>
         </motion.div>
       </section>

@@ -117,7 +117,7 @@ export default function ProjectForm({
         <section className="space-y-6">
           <h2 className="text-xs uppercase tracking-[0.3em] text-muted border-b border-white/10 pb-4">Basic Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
+            <div className="md:col-span-2 space-y-2">
               <label className="text-[10px] uppercase tracking-widest text-muted">Project Title</label>
               <input 
                 type="text" 
@@ -127,17 +127,9 @@ export default function ProjectForm({
                 className="w-full bg-white/5 border border-white/10 px-4 py-4 focus:outline-none focus:border-white transition-colors"
                 placeholder="e.g. Minimalist Loft"
               />
-            </div>
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-widest text-muted">URL Slug</label>
-              <input 
-                type="text" 
-                required
-                value={formData.slug}
-                onChange={e => setFormData({...formData, slug: e.target.value})}
-                className="w-full bg-white/5 border border-white/10 px-4 py-4 focus:outline-none focus:border-white transition-colors"
-                placeholder="minimalist-loft"
-              />
+              <p className="text-[10px] text-muted italic ml-1">
+                Slug: <span className="text-white/60">{formData.slug}</span>
+              </p>
             </div>
             <div className="space-y-2">
               <label className="text-[10px] uppercase tracking-widest text-muted">Category</label>
