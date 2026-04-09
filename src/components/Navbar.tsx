@@ -13,10 +13,9 @@ export default function Navbar() {
       </Link>
       
       <div className="flex gap-8 text-sm font-medium tracking-widest text-white/70 uppercase">
-        <Link to="/" className="hover:text-white transition-colors">Projects</Link>
-        <Link to="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
-        <a href="#" className="hover:text-white transition-colors">About</a>
-        <a href="#" className="hover:text-white transition-colors">Contact</a>
+        <Link to="/projects" className="hover:text-white transition-colors">Projects</Link>
+        <Link to="/about" className="hover:text-white transition-colors">About</Link>
+        <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
       </div>
     </motion.nav>
   );

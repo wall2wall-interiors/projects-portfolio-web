@@ -1,0 +1,319 @@
+/* eslint-disable */
+/**
+ * Generated `api` utility.
+ *
+ * THIS CODE IS AUTOMATICALLY GENERATED.
+ *
+ * To regenerate, run `npx convex dev`.
+ * @module
+ */
+
+import type * as auth from "../auth.js";
+import type * as http from "../http.js";
+import type * as seed from "../seed.js";
+import type * as uploadthing from "../uploadthing.js";
+
+import type {
+  ApiFromModules,
+  FilterApi,
+  FunctionReference,
+} from "convex/server";
+
+declare const fullApi: ApiFromModules<{
+  auth: typeof auth;
+  http: typeof http;
+  seed: typeof seed;
+  uploadthing: typeof uploadthing;
+}>;
+
+/**
+ * A utility for referencing Convex functions in your app's public API.
+ *
+ * Usage:
+ * ```js
+ * const myFunctionReference = api.myModule.myFunction;
+ * ```
+ */
+export declare const api: FilterApi<
+  typeof fullApi,
+  FunctionReference<any, "public">
+>;
+
+/**
+ * A utility for referencing Convex functions in your app's internal API.
+ *
+ * Usage:
+ * ```js
+ * const myFunctionReference = internal.myModule.myFunction;
+ * ```
+ */
+export declare const internal: FilterApi<
+  typeof fullApi,
+  FunctionReference<any, "internal">
+>;
+
+export declare const components: {
+  uploadthingFileTracker: {
+    callbacks: {
+      handleUploadthingCallback: FunctionReference<
+        "action",
+        "internal",
+        { apiKey?: string; hook: string; rawBody: string; signature: string },
+        | { fileId: string; hook: string; ok: true }
+        | { error: string; ok: false }
+      >;
+    };
+    cleanup: {
+      cleanupExpired: FunctionReference<
+        "action",
+        "internal",
+        { apiKey?: string; batchSize?: number; dryRun?: boolean },
+        {
+          deletedCount: number;
+          hasMore: boolean;
+          keys: Array<string>;
+          remoteDeleteError?: string;
+          remoteDeleteFailed?: boolean;
+          remoteDeletedCount?: number;
+        }
+      >;
+    };
+    config: {
+      getConfig: FunctionReference<
+        "query",
+        "internal",
+        {},
+        {
+          defaultTtlMs?: number;
+          deleteBatchSize?: number;
+          deleteRemoteOnExpire?: boolean;
+          hasApiKey: boolean;
+          ttlByFileType?: Record<string, number>;
+          ttlByMimeType?: Record<string, number>;
+        }
+      >;
+      setConfig: FunctionReference<
+        "mutation",
+        "internal",
+        {
+          config: {
+            defaultTtlMs?: number;
+            deleteBatchSize?: number;
+            deleteRemoteOnExpire?: boolean;
+            ttlByFileType?: Record<string, number>;
+            ttlByMimeType?: Record<string, number>;
+            uploadthingApiKey?: string;
+          };
+          replace?: boolean;
+        },
+        { created: boolean }
+      >;
+    };
+    files: {
+      deleteFiles: FunctionReference<
+        "mutation",
+        "internal",
+        { keys: Array<string> },
+        number
+      >;
+      setFileAccess: FunctionReference<
+        "mutation",
+        "internal",
+        {
+          access?: {
+            allowUserIds?: Array<string>;
+            denyUserIds?: Array<string>;
+            visibility: "public" | "private" | "restricted";
+          } | null;
+          key: string;
+        },
+        string | null
+      >;
+      setFolderAccess: FunctionReference<
+        "mutation",
+        "internal",
+        {
+          access?: {
+            allowUserIds?: Array<string>;
+            denyUserIds?: Array<string>;
+            visibility: "public" | "private" | "restricted";
+          } | null;
+          folder: string;
+        },
+        string | null
+      >;
+      upsertFile: FunctionReference<
+        "mutation",
+        "internal",
+        {
+          file: {
+            customId?: string;
+            fileType?: string;
+            key: string;
+            mimeType: string;
+            name: string;
+            size: number;
+            uploadedAt?: number;
+            url: string;
+          };
+          options?: {
+            access?: {
+              allowUserIds?: Array<string>;
+              denyUserIds?: Array<string>;
+              visibility: "public" | "private" | "restricted";
+            };
+            expiresAt?: number;
+            fileType?: string;
+            folder?: string;
+            metadata?: any;
+            tags?: Array<string>;
+            ttlMs?: number;
+          };
+          userId: string;
+        },
+        string
+      >;
+    };
+    queries: {
+      getFileByKey: FunctionReference<
+        "query",
+        "internal",
+        { key: string; viewerUserId?: string },
+        {
+          _creationTime: number;
+          _id: string;
+          access?: {
+            allowUserIds?: Array<string>;
+            denyUserIds?: Array<string>;
+            visibility: "public" | "private" | "restricted";
+          };
+          customId?: string;
+          expiresAt?: number;
+          fileType?: string;
+          folder?: string;
+          key: string;
+          metadata?: any;
+          mimeType: string;
+          name: string;
+          replacedAt?: number;
+          size: number;
+          tags?: Array<string>;
+          uploadedAt: number;
+          url: string;
+          userId: string;
+        } | null
+      >;
+      getFolderRuleByFolder: FunctionReference<
+        "query",
+        "internal",
+        { folder: string },
+        {
+          _creationTime: number;
+          _id: string;
+          access: {
+            allowUserIds?: Array<string>;
+            denyUserIds?: Array<string>;
+            visibility: "public" | "private" | "restricted";
+          };
+          folder: string;
+          updatedAt: number;
+        } | null
+      >;
+      listAllFiles: FunctionReference<
+        "query",
+        "internal",
+        {
+          folder?: string;
+          includeExpired?: boolean;
+          limit?: number;
+          mimeType?: string;
+          tag?: string;
+          viewerUserId?: string;
+        },
+        Array<{
+          _creationTime: number;
+          _id: string;
+          access?: {
+            allowUserIds?: Array<string>;
+            denyUserIds?: Array<string>;
+            visibility: "public" | "private" | "restricted";
+          };
+          customId?: string;
+          expiresAt?: number;
+          fileType?: string;
+          folder?: string;
+          key: string;
+          metadata?: any;
+          mimeType: string;
+          name: string;
+          replacedAt?: number;
+          size: number;
+          tags?: Array<string>;
+          uploadedAt: number;
+          url: string;
+          userId: string;
+        }>
+      >;
+      listFiles: FunctionReference<
+        "query",
+        "internal",
+        {
+          folder?: string;
+          includeExpired?: boolean;
+          limit?: number;
+          mimeType?: string;
+          ownerUserId: string;
+          tag?: string;
+          viewerUserId?: string;
+        },
+        Array<{
+          _creationTime: number;
+          _id: string;
+          access?: {
+            allowUserIds?: Array<string>;
+            denyUserIds?: Array<string>;
+            visibility: "public" | "private" | "restricted";
+          };
+          customId?: string;
+          expiresAt?: number;
+          fileType?: string;
+          folder?: string;
+          key: string;
+          metadata?: any;
+          mimeType: string;
+          name: string;
+          replacedAt?: number;
+          size: number;
+          tags?: Array<string>;
+          uploadedAt: number;
+          url: string;
+          userId: string;
+        }>
+      >;
+      listFolderRules: FunctionReference<
+        "query",
+        "internal",
+        { limit?: number },
+        Array<{
+          _creationTime: number;
+          _id: string;
+          access: {
+            allowUserIds?: Array<string>;
+            denyUserIds?: Array<string>;
+            visibility: "public" | "private" | "restricted";
+          };
+          folder: string;
+          updatedAt: number;
+        }>
+      >;
+    };
+    stats: {
+      getUsageStats: FunctionReference<
+        "query",
+        "internal",
+        { userId: string },
+        { totalBytes: number; totalFiles: number }
+      >;
+    };
+  };
+};
