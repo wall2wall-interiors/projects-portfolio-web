@@ -9,10 +9,10 @@ export default function Footer() {
             LET'S BUILD SOMETHING<br />EXTRAORDINARY.
           </h2>
           <a 
-            href="mailto:hello@wall2wall.com" 
+            href="mailto:hello@wall2wallinteriors.co.in" 
             className="text-xl md:text-2xl font-medium border-b border-white hover:pb-2 transition-all"
           >
-            hello@wall2wall.com
+            hello@wall2wallinteriors.co.in
           </a>
         </div>
         
@@ -23,6 +23,7 @@ export default function Footer() {
             <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
             <a href="#" className="hover:text-white transition-colors">Pinterest</a>
             <Link to="/login" className="hover:text-white transition-colors">Team</Link>
+            <Link to="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
           </div>
         </div>
       </div>

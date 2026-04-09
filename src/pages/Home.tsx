@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
-import { projects } from '../data/projects';
-import ProjectCard from '../components/ProjectCard';
+import { useProjects } from '../features/projects/hooks/use-projects';
+import ProjectCard from '../features/projects/components/ProjectCard';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,8 +23,11 @@ const itemVariants = {
 };
 
 export default function Home() {
-  const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
+  const { getFeaturedProjects, getAllProjects } = useProjects();
+  const { projects: featuredProjects, isLoading: loadingFeatured } = getFeaturedProjects();
+  const { projects: allProjects, isLoading: loadingAll } = getAllProjects();
+
+  const otherProjects = allProjects?.filter(p => !p.featured) ?? [];
 
   return (
     <main className="min-h-screen bg-background pt-32 pb-24">
@@ -57,13 +60,17 @@ export default function Home() {
           <p className="text-xs font-medium text-muted">01 — 02</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {featuredProjects.map((project) => (
-            <div key={project.id}>
-              <ProjectCard project={project} />
-            </div>
-          ))}
-        </div>
+        {loadingFeatured ? (
+          <div className="h-64 flex items-center justify-center text-muted">Loading featured works...</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {featuredProjects?.map((project) => (
+              <div key={project._id}>
+                <ProjectCard project={project as any} />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Project Grid */}
@@ -74,19 +81,23 @@ export default function Home() {
           <p className="text-xs font-medium text-muted">03 — 06</p>
         </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {otherProjects.map((project) => (
-            <motion.div key={project.id} variants={itemVariants}>
-              <ProjectCard project={project} />
-            </motion.div>
-          ))}
-        </motion.div>
+        {loadingAll ? (
+          <div className="h-64 flex items-center justify-center text-muted">Loading gallery...</div>
+        ) : (
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {otherProjects.map((project) => (
+              <motion.div key={project._id} variants={itemVariants}>
+                <ProjectCard project={project as any} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </section>
     </main>
   );

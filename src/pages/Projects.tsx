@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
-import { projects } from '../data/projects';
-import ProjectCard from '../components/ProjectCard';
+import { useProjects } from '../features/projects/hooks/use-projects';
+import ProjectCard from '../features/projects/components/ProjectCard';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,6 +23,9 @@ const itemVariants = {
 };
 
 export default function Projects() {
+  const { getAllProjects } = useProjects();
+  const { projects, isLoading } = getAllProjects();
+
   return (
     <main className="min-h-screen bg-background pt-32 pb-24 px-6 md:px-12">
       <header className="mb-24">
@@ -45,18 +48,22 @@ export default function Projects() {
         </motion.p>
       </header>
 
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        {projects.map((project) => (
-          <motion.div key={project.id} variants={itemVariants}>
-            <ProjectCard project={project} />
-          </motion.div>
-        ))}
-      </motion.div>
+      {isLoading ? (
+        <div className="h-64 flex items-center justify-center text-muted">Loading gallery...</div>
+      ) : (
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {projects?.map((project) => (
+            <motion.div key={project._id} variants={itemVariants}>
+              <ProjectCard project={project as any} />
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
     </main>
   );
 }

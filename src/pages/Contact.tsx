@@ -26,7 +26,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted mb-1">Email</p>
-                <p className="text-lg">hello@wall2wall.design</p>
+                <p className="text-lg">hello@wall2wallinteriors.co.in</p>
               </div>
             </div>
             <div className="flex items-start gap-4">

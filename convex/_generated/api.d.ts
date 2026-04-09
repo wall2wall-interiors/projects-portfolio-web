@@ -10,7 +10,9 @@
 
 import type * as auth from "../auth.js";
 import type * as http from "../http.js";
-import type * as seed from "../seed.js";
+import type * as inquiries from "../inquiries.js";
+import type * as projects from "../projects.js";
+import type * as uploadRouter from "../uploadRouter.js";
 import type * as uploadthing from "../uploadthing.js";
 
 import type {
@@ -22,7 +24,9 @@ import type {
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   http: typeof http;
-  seed: typeof seed;
+  inquiries: typeof inquiries;
+  projects: typeof projects;
+  uploadRouter: typeof uploadRouter;
   uploadthing: typeof uploadthing;
 }>;
 

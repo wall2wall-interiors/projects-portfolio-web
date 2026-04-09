@@ -1,26 +1,27 @@
-import { createUploadthing, type FileRouter } from "uploadthing/express";
-import { UploadThingError } from "uploadthing/server";
-import { generateUploadButton, generateUploadDropzone } from "@uploadthing/react";
+import { generateUploadButton, generateUploadDropzone, generateReactHelpers } from "@uploadthing/react";
+import type { UploadRouter } from "../../convex/uploadRouter";
 
-const f = createUploadthing();
+// Helper to derive the Convex Site URL from the API URL
+const getConvexSiteUrl = () => {
+  const convexUrl = import.meta.env.VITE_CONVEX_URL;
+  if (!convexUrl) return "";
+  try {
+    const url = new URL(convexUrl);
+    // Replace .convex.cloud with .convex.site
+    return `https://${url.hostname.replace('.convex.cloud', '.convex.site')}`;
+  } catch (e) {
+    return "";
+  }
+};
 
-export const uploadRouter = {
-  projectImageUploader: f({
-    image: {
-      maxFileSize: "16MB",
-      maxFileCount: 10,
-    },
-  })
-    .middleware(async ({ req, res }) => {
-      return { uploadedAt: Date.now() };
-    })
-    .onUploadComplete(async ({ metadata, file }) => {
-      console.log("Upload complete:", file.ufsUrl);
-      return { url: file.ufsUrl, key: file.key };
-    }),
-} satisfies FileRouter;
+export const UploadButton = generateUploadButton<UploadRouter>({
+  url: `${getConvexSiteUrl()}/api/uploadthing`,
+});
 
-export type UploadRouter = typeof uploadRouter;
+export const UploadDropzone = generateUploadDropzone<UploadRouter>({
+  url: `${getConvexSiteUrl()}/api/uploadthing`,
+});
 
-export const UploadButton = generateUploadButton<UploadRouter>();
-export const UploadDropzone = generateUploadDropzone<UploadRouter>();
+export const { useUploadThing, uploadFiles } = generateReactHelpers<UploadRouter>({
+  url: `${getConvexSiteUrl()}/api/uploadthing`,
+});

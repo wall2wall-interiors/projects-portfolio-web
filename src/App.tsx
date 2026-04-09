@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import AddProject from './pages/AddProject';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -31,14 +30,6 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <Dashboard />
-                </ProtectedRoute>
-              } 
-            />
-            <Route 
-              path="/dashboard/add" 
-              element={
-                <ProtectedRoute>
-                  <AddProject />
                 </ProtectedRoute>
               } 
             />
