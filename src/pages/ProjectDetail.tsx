@@ -2,10 +2,12 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { projects } from '../data/projects';
 import { ArrowLeft, ArrowRight, Play } from 'lucide-react';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export default function ProjectDetail() {
   const { id } = useParams();
   const project = projects.find(p => p.id === id);
+  usePageTitle(project?.title || 'Project Detail');
   
   if (!project) {
     return (

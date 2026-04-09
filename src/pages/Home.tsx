@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useProjects } from '../features/projects/hooks/use-projects';
 import ProjectCard from '../features/projects/components/ProjectCard';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,6 +24,7 @@ const itemVariants = {
 };
 
 export default function Home() {
+  usePageTitle('Home');
   const { getFeaturedProjects, getAllProjects } = useProjects();
   const { projects: featuredProjects, isLoading: loadingFeatured } = getFeaturedProjects();
   const { projects: allProjects, isLoading: loadingAll } = getAllProjects();

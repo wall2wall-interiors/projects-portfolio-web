@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export default function About() {
+  usePageTitle('About');
   return (
     <main className="min-h-screen bg-background pt-32 pb-24 px-6 md:px-12">
       <div className="max-w-5xl mx-auto">

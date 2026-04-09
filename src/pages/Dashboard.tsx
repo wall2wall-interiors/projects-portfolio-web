@@ -5,8 +5,10 @@ import { useAuth } from '../features/auth/hooks/use-auth';
 import { Plus, Edit2, Trash2, ExternalLink, Search, LogOut, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import ProjectForm from '../features/projects/components/ProjectForm';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export default function Dashboard() {
+  usePageTitle('Admin Dashboard');
   const { getAllProjects, deleteProject, createProject, updateProject, getProjectById } = useProjects();
   const { projects: initialProjects, isLoading } = getAllProjects();
   const { logout } = useAuth();
